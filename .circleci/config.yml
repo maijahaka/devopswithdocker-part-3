@@ -6,4 +6,4 @@ workflows:
     jobs:
       - docker/publish:
           image: maijahaka/devopswithdocker-part-3
-          tag: 'latest,registry.heroku.com/devopswithdocker-part-3/web'
+          tag: 'registry.heroku.com/devopswithdocker-part-3/web'
