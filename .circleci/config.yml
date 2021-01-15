@@ -5,6 +5,8 @@ jobs:
   heroku-publish:
     machine:
       enabled: true
+    steps:
+      - checkout
 workflows:
   deploy:
     jobs:
