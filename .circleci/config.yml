@@ -1,13 +1,12 @@
 version: 2.1
 jobs:
   build:
-    machine:
-      enabled: true
+    machine: true
     steps:
-        - checkout
-        - run: |
+      - checkout
+      - run: |
           echo "$DOCKER_PASS"
 workflows:
   build-and-deploy:
     jobs:
-      build
+      - build
