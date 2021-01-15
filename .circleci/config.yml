@@ -6,7 +6,7 @@ jobs:
       - checkout
       - run: |
           echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_LOGIN --password-stdin
-      - run: docker build -t $HEROKU_APP .
+      - run: docker build -t $HEROKU_APP:testtag .
       - run: docker images
 workflows:
   build-and-deploy:
