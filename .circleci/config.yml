@@ -8,7 +8,8 @@ jobs:
           #echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_LOGIN --password-stdin
       #- run: docker build -t $HEROKU_APP:testtag .
       #- run: docker images
-      - run: heroku login
+      - run: |
+          echo "$HEROKU_PASSWORD" | heroku login --username $HEROKU_USER --password-stdin
 workflows:
   build-and-deploy:
     jobs:
