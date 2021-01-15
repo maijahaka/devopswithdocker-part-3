@@ -5,6 +5,9 @@ jobs:
   heroku-publish:
     machine:
       enabled: true
+    working_directory: ~/devopswithdocker-part-3
+    environment:
+      HEROKU_APP: $HEROKU_APP
     steps:
       - checkout
 workflows:
