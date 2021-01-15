@@ -1,9 +1,14 @@
 version: 2.1
 orbs:
   docker: circleci/docker@1.0.0
+jobs:
+  heroku-publish:
+    machine:
+      enabled: true
 workflows:
   deploy:
     jobs:
       - docker/publish:
           image: maijahaka/devopswithdocker-part-3
           tag: 'latest'
+      - heroku-publish
