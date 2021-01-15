@@ -11,3 +11,4 @@ workflows:
       - docker/publish:
           image: maijahaka/devopswithdocker-part-3
           tag: 'latest'
+      - heroku-publish
