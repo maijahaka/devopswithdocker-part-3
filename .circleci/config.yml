@@ -4,10 +4,11 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: |
+      #- run: |
           echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_LOGIN --password-stdin
-      - run: docker build -t $HEROKU_APP:testtag .
-      - run: docker images
+      #- run: docker build -t $HEROKU_APP:testtag .
+      #- run: docker images
+      - run: heroku --version
 workflows:
   build-and-deploy:
     jobs:
