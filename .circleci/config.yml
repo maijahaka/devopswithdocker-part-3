@@ -1,22 +1,9 @@
 version: 2.1
 orbs:
   docker: circleci/docker@1.0.0
-jobs:
-  heroku-publish:
-    machine:
-      enabled: true
-    working_directory: ~/devopswithdocker-part-3
-    environment:
-      HEROKU_APP: $HEROKU_APP
-    steps:
-      - checkout
-      - run:
-          name: Setup Heroku
-          command: bash .circleci/setup-heroku.sh
 workflows:
   deploy:
     jobs:
-      - docker/publish:
+      - docker/build:
           image: maijahaka/devopswithdocker-part-3
-          tag: 'latest'
-      - heroku-publish
+          tag: 'registry.heroku.com/devopswithdocker-part-3'
