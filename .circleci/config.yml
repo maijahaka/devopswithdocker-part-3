@@ -12,6 +12,7 @@ jobs:
       #- run: heroku container:push web
       #- run: heroku container:release web
       - run: sudo apt-get update
+      - run: sudo apt-get install heroku
       - run: heroku --version 
 workflows:
   build-and-deploy:
