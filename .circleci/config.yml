@@ -11,9 +11,7 @@ jobs:
       #- run: docker build -t devopswithdocker-part-3 .
       #- run: heroku container:push web
       #- run: heroku container:release web
-      - run: sudo apt update
-      - run: sudo apt install snapd
-      - run: sudo snap install --classic heroku
+      - run: sudo curl https://cli-assets.heroku.com/install.sh | sh
       - run: heroku --version 
 workflows:
   build-and-deploy:
