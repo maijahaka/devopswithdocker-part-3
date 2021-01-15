@@ -3,7 +3,9 @@ orbs:
   docker: circleci/docker@1.0.0
 jobs:
   heroku-publish:
-    - steps:
+    machine:
+      enabled: true
+    steps:
         - checkout
 workflows:
   deploy:
