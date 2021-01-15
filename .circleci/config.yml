@@ -11,7 +11,7 @@ jobs:
       #- run: docker build -t devopswithdocker-part-3 .
       #- run: heroku container:push web
       #- run: heroku container:release web
-      - run: apt-get update heroku
+      - run: apt-get upgrade heroku
       - run: heroku --version 
 workflows:
   build-and-deploy:
