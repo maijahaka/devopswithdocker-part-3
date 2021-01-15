@@ -3,16 +3,15 @@ jobs:
   build:
     machine: true
     steps:
-      #- checkout
-      #- run: |
-          #echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_LOGIN --password-stdin
-      #- run: |    
-            #echo "$HEROKU_API_KEY" | docker login --username $HEROKU_LOGIN --password-stdin registry.heroku.com
-      #- run: docker build -t devopswithdocker-part-3 .
-      #- run: heroku container:push web
-      #- run: heroku container:release web
+      - checkout
       - run: sudo curl https://cli-assets.heroku.com/install.sh | sh
-      - run: heroku --version 
+      - run: |
+          #echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_LOGIN --password-stdin
+      - run: |    
+            #echo "$HEROKU_API_KEY" | docker login --username $HEROKU_LOGIN --password-stdin registry.heroku.com
+      - run: docker build -t devopswithdocker-part-3 .
+      - run: heroku container:push web
+      - run: heroku container:release web
 workflows:
   build-and-deploy:
     jobs:
