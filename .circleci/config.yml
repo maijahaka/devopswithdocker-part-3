@@ -6,6 +6,7 @@ jobs:
       - checkout
       - run: |
           echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_LOGIN --password-stdin
+      - run: docker build -t registry.heroku.com/$HEROKU_APP/web .
 workflows:
   build-and-deploy:
     jobs:
