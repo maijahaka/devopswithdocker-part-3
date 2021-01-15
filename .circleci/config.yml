@@ -1,20 +1,13 @@
 version: 2.1
-orbs:
-  docker: circleci/docker@1.0.0
 jobs:
-  heroku-publish:
+  build:
     machine:
       enabled: true
     steps:
-        - run:
-            name: Tag image for Heroku deployment
-            command: docker tag devopswithdocker-part-3:latest devopswithdocker-part-3:herokutest
+        - checkout
+        - run: |
+          echo "$DOCKER_PASS"
 workflows:
-  deploy:
+  build-and-deploy:
     jobs:
-      - docker/publish:
-          image: maijahaka/devopswithdocker-part-3
-          tag: 'latest'
-      - heroku-publish:
-          requires:
-            - docker/publish
+      build
