@@ -5,7 +5,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+          echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_LOGIN --password-stdin
 workflows:
   build-and-deploy:
     jobs:
