@@ -6,13 +6,15 @@ jobs:
     machine:
       enabled: true
     steps:
-        - docker/publish:
-          image: maijahaka/devopswithdocker-part-3
-          tag: 'latest'
         - run:
             name: Tag image for Heroku deployment
-            command: docker tag devopswithdocker-part-3 devopswithdocker-part-3:herokutest
+            command: docker tag devopswithdocker-part-3:latest devopswithdocker-part-3:herokutest
 workflows:
   deploy:
     jobs:
-      - heroku-publish
+      - docker/publish:
+          image: maijahaka/devopswithdocker-part-3
+          tag: 'latest'
+      - heroku-publish:
+          requires:
+            - docker/publish
