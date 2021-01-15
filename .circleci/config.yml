@@ -7,4 +7,4 @@ workflows:
       - docker/publish:
           deploy: false
           image: maijahaka/devopswithdocker-part-3
-          tag: 'registry.heroku.com/devopswithdocker-part-3'
+          tag: 'latest'
