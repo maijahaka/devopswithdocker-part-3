@@ -9,7 +9,7 @@ jobs:
       - run: |    
           echo "$HEROKU_API_KEY" | docker login --username $HEROKU_LOGIN --password-stdin registry.heroku.com
       - run: docker build -t $HEROKU_APP .
-      - run: docker tag $HEROKU_APP $HEROKU_APP:registry.heroku.com/$HEROKU_APP/web
+      - run: docker tag $HEROKU_APP devopswithdocker-part-3:registry.heroku.com/devopswithdocker-part-3/web
 
 workflows:
   build-and-deploy:
